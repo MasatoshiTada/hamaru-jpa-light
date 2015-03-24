@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.example.app;
 
 import com.example.entity.Manufacturer;
@@ -11,24 +6,23 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
-/**
- *
- * @author Tada
- */
 public class ManufacturerInsertSample {
     public static void main(String[] args) {
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("samplePU");
         EntityManager manager = factory.createEntityManager();
         EntityTransaction tx = manager.getTransaction();
+        System.out.println("begin");
         tx.begin();
         
         Manufacturer manufacturer = new Manufacturer();
         manufacturer.setManufacturerId(1);
-        manufacturer.setName("Casareal, Inc.");
-        
+        manufacturer.setName("Hoge Corp.");
+        System.out.println("persist");
         manager.persist(manufacturer);
         
+        System.out.println("flush");
         manager.flush();
+        System.out.println("commit");
         tx.commit();
         
         manager.close();

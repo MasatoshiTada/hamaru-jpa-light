@@ -6,7 +6,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
-public class ManufacturerUpdateSample {
+public class ManufacturerDeleteSample1 {
     public static void main(String[] args) {
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("samplePU");
         EntityManager manager = factory.createEntityManager();
@@ -16,7 +16,10 @@ public class ManufacturerUpdateSample {
         Manufacturer manufacturer = new Manufacturer();
         manufacturer.setManufacturerId(1);
         manufacturer.setName("Fuga Corp.");
-        manager.merge(manufacturer);
+        Manufacturer managedManufacturer =  manager.merge(manufacturer);
+        manager.remove(managedManufacturer);
+        
+        manager.merge(managedManufacturer);
         
         manager.flush();
         tx.commit();
