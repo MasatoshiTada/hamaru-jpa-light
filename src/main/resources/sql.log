@@ -1,0 +1,21 @@
+・JPQL
+SELECT m.name, COUNT(p) FROM Manufacturer m LEFT OUTER JOIN m.productList p GROUP BY m.name
+・SQL(EclipseLink)
+SELECT t0.NAME, COUNT(t1.PRODUCT_ID) FROM MANUFACTURER t0 
+LEFT OUTER JOIN PRODUCT t1 ON (t1.MANUFACTURER_ID = t0.MANUFACTURER_ID) GROUP BY t0.NAME
+・SQL(Hibernate)
+select manufactur0_.name as col_0_0_, count(productlis1_.PRODUCT_ID) as col_1_0_ from Manufacturer manufactur0_ 
+left outer join Product productlis1_ on manufactur0_.MANUFACTURER_ID=productlis1_.MANUFACTURER_ID group by manufactur0_.name
+
+・JPQL
+SELECT m.name, COUNT(p) FROM Manufacturer m LEFT OUTER JOIN Product p GROUP BY m.name
+・SQL(EclipseLink)
+SELECT t0.NAME, COUNT(t1.PRODUCT_ID) FROM MANUFACTURER t0, PRODUCT t1 GROUP BY t0.NAME
+
+・JPQL
+SELECT p FROM Product p JOIN p.manufacturer m
+・SQL(EclipseLink)
+SELECT t1.PRODUCT_ID, t1.AVAILABLE, t1.DESCRIPTION, t1.MARKUP, t1.PURCHASE_COST, t1.QUANTITY_ON_HAND, t1.MANUFACTURER_ID, t1.PRODUCT_CODE FROM MANUFACTURER t0, PRODUCT t1 WHERE (t0.MANUFACTURER_ID = t1.MANUFACTURER_ID)
+・SQL(Hibernate)
+select product0_.PRODUCT_ID as col_0_0_ from Product product0_ inner join Manufacturer manufactur1_ on product0_.MANUFACTURER_ID=manufactur1_.MANUFACTURER_ID
+
