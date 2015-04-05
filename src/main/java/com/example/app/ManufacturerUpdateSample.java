@@ -13,13 +13,14 @@ public class ManufacturerUpdateSample {
         EntityTransaction tx = manager.getTransaction();
         tx.begin();
         
-        Manufacturer manufacturer = new Manufacturer();
-        manufacturer.setManufacturerId(1);
-        manufacturer.setName("Fuga Corp.");
-        manager.merge(manufacturer);
+        Manufacturer manufacturer = manager.find(Manufacturer.class, 1);
+        manufacturer.setName("FUGA");
         
+        System.out.println("flush start.");
         manager.flush();
+        System.out.println("flushed.");
         tx.commit();
+        System.out.println("committed.");
         
         manager.close();
         factory.close();

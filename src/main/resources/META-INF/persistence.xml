@@ -15,10 +15,11 @@
       <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.ClientDriver"/>
       <property name="javax.persistence.jdbc.password" value="app"/>
       <property name="eclipselink.target-database" value="JavaDB"/>
-      <property name="eclipselink.logging.level" value="ALL"/>
+      <property name="eclipselink.logging.level" value="FINE"/>
       <property name="eclipselink.logging.session" value="false"/>
       <property name="eclipselink.logging.thread" value="false"/>
       <property name="eclipselink.logging.timestamp" value="false"/>
+      <property name="eclipselink.jdbc.bind-parameters" value="true"/>
     </properties>
   </persistence-unit>
 </persistence>

@@ -11,18 +11,14 @@ public class ManufacturerInsertSample {
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("samplePU");
         EntityManager manager = factory.createEntityManager();
         EntityTransaction tx = manager.getTransaction();
-        System.out.println("begin");
         tx.begin();
         
         Manufacturer manufacturer = new Manufacturer();
         manufacturer.setManufacturerId(1);
-        manufacturer.setName("Hoge Corp.");
-        System.out.println("persist");
+        manufacturer.setName("HOGE");
         manager.persist(manufacturer);
         
-        System.out.println("flush");
         manager.flush();
-        System.out.println("commit");
         tx.commit();
         
         manager.close();

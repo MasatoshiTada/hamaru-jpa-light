@@ -15,11 +15,9 @@ public class ManufacturerDeleteSample1 {
         
         Manufacturer manufacturer = new Manufacturer();
         manufacturer.setManufacturerId(1);
-        manufacturer.setName("Fuga Corp.");
+        manufacturer.setName("FUGA");
         Manufacturer managedManufacturer =  manager.merge(manufacturer);
         manager.remove(managedManufacturer);
-        
-        manager.merge(managedManufacturer);
         
         manager.flush();
         tx.commit();

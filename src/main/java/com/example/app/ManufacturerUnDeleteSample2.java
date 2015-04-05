@@ -15,7 +15,7 @@ public class ManufacturerUnDeleteSample2 {
         
         Manufacturer manufacturer = new Manufacturer();
         manufacturer.setManufacturerId(1);
-        manufacturer.setName("Fuga Corp.");
+        manufacturer.setName("FUGA");
         manager.merge(manufacturer);
         manager.remove(manufacturer);
         
