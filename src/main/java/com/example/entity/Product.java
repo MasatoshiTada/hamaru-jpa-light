@@ -7,6 +7,7 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -43,7 +44,7 @@ public class Product implements Serializable {
     @ManyToOne(optional = false)
     private Manufacturer manufacturer;
     @JoinColumn(name = "PRODUCT_CODE", referencedColumnName = "PROD_CODE")
-    @ManyToOne(optional = false)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private ProductCode productCode;
 
     public Product() {

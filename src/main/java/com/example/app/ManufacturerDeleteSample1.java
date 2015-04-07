@@ -16,11 +16,19 @@ public class ManufacturerDeleteSample1 {
         Manufacturer manufacturer = new Manufacturer();
         manufacturer.setManufacturerId(1);
         manufacturer.setName("FUGA");
+        System.out.println("merge start.");
         Manufacturer managedManufacturer =  manager.merge(manufacturer);
+        System.out.println("merge end.");
+        System.out.println("remove start.");
         manager.remove(managedManufacturer);
+        System.out.println("remove end.");
         
+        System.out.println("flush start.");
         manager.flush();
+        System.out.println("flush end.");
+        System.out.println("commit start.");
         tx.commit();
+        System.out.println("commit end.");
         
         manager.close();
         factory.close();
