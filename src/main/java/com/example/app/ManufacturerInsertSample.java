@@ -20,7 +20,13 @@ public class ManufacturerInsertSample {
             manager.persist(manufacturer);
 
             manager.flush();
+            
+            System.out.println(manager.contains(manufacturer));
+            
             tx.commit();
+            
+            System.out.println(manager.contains(manufacturer));
+
         } catch (Exception e) {
             System.out.println("===========" + e.getClass().getName() + "===========");
             e.printStackTrace();
